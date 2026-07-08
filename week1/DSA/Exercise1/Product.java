@@ -1,3 +1,5 @@
+package DSA.Exercise1;
+
 public class Product {
 
     private int productId;

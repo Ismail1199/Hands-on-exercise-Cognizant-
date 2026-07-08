@@ -1,3 +1,5 @@
+package DSA.Exercise1;
+
 import java.util.HashMap;
 
 public class InventoryManagement {

@@ -1,3 +1,5 @@
+package DSA.Exercise1;
+
 public class Main {
     public static void main(String[] args) {
         InventoryManagement inventory = new InventoryManagement();
