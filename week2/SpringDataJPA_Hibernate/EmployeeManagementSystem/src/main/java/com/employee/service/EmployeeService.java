@@ -60,4 +60,7 @@ public class EmployeeService {
     public List<Employee> getEmployeesNative() {
         return repository.getAllEmployeesNative();
     }
+    public List<Employee> saveAllEmployees(List<Employee> employees) {
+        return repository.saveAll(employees);
+    }
 }

@@ -7,18 +7,22 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import java.time.LocalDateTime;
 
 @NamedQuery(
         name = "Employee.findByEmployeeName",
         query = "SELECT e FROM Employee e WHERE e.name = :name"
 )
+
+
+@DynamicInsert
+@DynamicUpdate
 @Entity
 @Table(name = "employees")
 @EntityListeners(AuditingEntityListener.class)
 public class Employee {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

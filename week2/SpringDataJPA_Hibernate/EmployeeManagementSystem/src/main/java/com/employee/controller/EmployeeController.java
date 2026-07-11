@@ -95,4 +95,8 @@ public class EmployeeController {
     public List<Employee> getEmployeesNative() {
         return service.getEmployeesNative();
     }
+    @PostMapping("/batch")
+    public List<Employee> saveAll(@RequestBody List<Employee> employees) {
+        return service.saveAllEmployees(employees);
+    }
 }
