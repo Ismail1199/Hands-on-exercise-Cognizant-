@@ -3,7 +3,7 @@ package com.employee.repository;
 import com.employee.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-
+import com.employee.projection.EmployeeProjection;
 import java.util.List;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
@@ -19,4 +19,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     // JPQL Query
     @Query("SELECT e FROM Employee e WHERE e.email = ?1")
     Employee getEmployeeByEmail(String email);
+
+    List<EmployeeProjection> findAllProjectedBy();
 }

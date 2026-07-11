@@ -6,6 +6,7 @@ import org.springframework.data.domain.Sort;
 import com.employee.entity.Employee;
 import com.employee.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
+import com.employee.projection.EmployeeProjection;
 
 import java.util.List;
 import java.util.Optional;
@@ -44,5 +45,8 @@ public class EmployeeService {
 
     public List<Employee> getEmployeesSorted(String field) {
         return repository.findAll(Sort.by(Sort.Direction.ASC, field));
+    }
+    public List<EmployeeProjection> getProjectedEmployees() {
+        return repository.findAllProjectedBy();
     }
 }

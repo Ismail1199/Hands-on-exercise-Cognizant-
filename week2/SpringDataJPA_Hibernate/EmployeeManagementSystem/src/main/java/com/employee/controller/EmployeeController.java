@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.domain.Sort;
+import com.employee.projection.EmployeeProjection;
 
 @RestController
 @RequestMapping("/employees")
@@ -73,5 +74,9 @@ public class EmployeeController {
         );
 
         return service.getEmployees(pageable);
+    }
+    @GetMapping("/projection")
+    public List<EmployeeProjection> getProjectedEmployees() {
+        return service.getProjectedEmployees();
     }
 }
