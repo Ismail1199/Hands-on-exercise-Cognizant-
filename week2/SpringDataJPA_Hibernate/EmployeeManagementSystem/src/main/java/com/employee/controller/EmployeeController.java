@@ -3,9 +3,12 @@ package com.employee.controller;
 import com.employee.entity.Employee;
 import com.employee.service.EmployeeService;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.data.domain.Sort;
 
 @RestController
 @RequestMapping("/employees")
@@ -42,5 +45,33 @@ public class EmployeeController {
     @DeleteMapping("/{id}")
     public void deleteEmployee(@PathVariable Long id) {
         service.deleteEmployee(id);
+    }
+    @GetMapping("/page")
+    public Page<Employee> getEmployeesByPage(
+            @RequestParam int page,
+            @RequestParam int size) {
+
+        Pageable pageable = PageRequest.of(page, size);
+        return service.getEmployees(pageable);
+    }
+    @GetMapping("/sort")
+    public List<Employee> sortEmployees(
+            @RequestParam String field) {
+
+        return service.getEmployeesSorted(field);
+    }
+    @GetMapping("/page-sort")
+    public Page<Employee> getEmployeesPageAndSort(
+            @RequestParam int page,
+            @RequestParam int size,
+            @RequestParam String field) {
+
+        Pageable pageable = PageRequest.of(
+                page,
+                size,
+                Sort.by(Sort.Direction.ASC, field)
+        );
+
+        return service.getEmployees(pageable);
     }
 }

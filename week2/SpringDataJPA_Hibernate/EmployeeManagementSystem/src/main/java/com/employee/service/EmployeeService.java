@@ -1,5 +1,8 @@
 package com.employee.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import com.employee.entity.Employee;
 import com.employee.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
@@ -34,5 +37,12 @@ public class EmployeeService {
 
     public void deleteEmployee(Long id) {
         repository.deleteById(id);
+    }
+    public Page<Employee> getEmployees(Pageable pageable) {
+        return repository.findAll(pageable);
+    }
+
+    public List<Employee> getEmployeesSorted(String field) {
+        return repository.findAll(Sort.by(Sort.Direction.ASC, field));
     }
 }
