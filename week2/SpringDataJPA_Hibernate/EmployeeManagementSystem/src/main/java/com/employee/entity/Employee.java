@@ -3,6 +3,10 @@ package com.employee.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
+@NamedQuery(
+        name = "Employee.findByEmployeeName",
+        query = "SELECT e FROM Employee e WHERE e.name = :name"
+)
 @Entity
 @Table(name = "employees")
 public class Employee {
