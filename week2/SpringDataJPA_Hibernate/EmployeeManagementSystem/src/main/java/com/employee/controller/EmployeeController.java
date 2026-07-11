@@ -79,4 +79,20 @@ public class EmployeeController {
     public List<EmployeeProjection> getProjectedEmployees() {
         return service.getProjectedEmployees();
     }
+    @GetMapping("/email")
+    public Employee getEmployeeByEmail(
+            @RequestParam String email) {
+
+        return service.getEmployeeByEmail(email);
+    }
+    @GetMapping("/search")
+    public List<Employee> searchEmployee(
+            @RequestParam String name) {
+
+        return service.searchEmployee(name);
+    }
+    @GetMapping("/native")
+    public List<Employee> getEmployeesNative() {
+        return service.getEmployeesNative();
+    }
 }

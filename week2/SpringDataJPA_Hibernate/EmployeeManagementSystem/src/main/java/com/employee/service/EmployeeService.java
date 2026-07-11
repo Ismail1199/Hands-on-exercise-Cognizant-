@@ -49,4 +49,15 @@ public class EmployeeService {
     public List<EmployeeProjection> getProjectedEmployees() {
         return repository.findAllProjectedBy();
     }
+    public Employee getEmployeeByEmail(String email) {
+        return repository.findEmployeeByEmail(email);
+    }
+
+    public List<Employee> searchEmployee(String name) {
+        return repository.searchEmployee(name);
+    }
+
+    public List<Employee> getEmployeesNative() {
+        return repository.getAllEmployeesNative();
+    }
 }
