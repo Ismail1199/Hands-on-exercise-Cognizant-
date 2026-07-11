@@ -1,6 +1,6 @@
-package com.library.service;
+package com.library.exercise2.service;
 
-import com.library.repository.BookRepository;
+import com.library.exercise2.repository.BookRepository;
 
 public class BookService {
 
@@ -11,6 +11,7 @@ public class BookService {
     }
 
     public void displayBook() {
+        System.out.println("BookService is calling BookRepository...");
         bookRepository.displayBook();
     }
 }
