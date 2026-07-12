@@ -12,7 +12,8 @@
     </bean>
 
     <bean id="country"
-          class="com.cognizant.springlearn.Country">
+          class="com.cognizant.springlearn.Country"
+          scope="prototype">
 
         <property name="code" value="IN"/>
         <property name="name" value="India"/>
