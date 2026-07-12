@@ -27,6 +27,11 @@ public class SpringLearnApplication {
 
         LOGGER.info("Today's Date : {}", format.format(new Date()));
 
+        Country country =
+                context.getBean("country", Country.class);
+
+        LOGGER.info("Country : {}", country);
+
         context.close();
     }
 }
