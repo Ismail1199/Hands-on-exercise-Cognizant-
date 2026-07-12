@@ -14,8 +14,8 @@
     <bean id="country"
           class="com.cognizant.springlearn.Country">
 
-        <constructor-arg value="IN"/>
-        <constructor-arg value="India"/>
+        <property name="code" value="IN"/>
+        <property name="name" value="India"/>
 
     </bean>
 
