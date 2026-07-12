@@ -12,11 +12,10 @@
     </bean>
 
     <bean id="country"
-          class="com.cognizant.springlearn.Country"
-          scope="prototype">
+          class="com.cognizant.springlearn.Country">
 
-        <property name="code" value="IN"/>
-        <property name="name" value="India"/>
+        <constructor-arg value="IN"/>
+        <constructor-arg value="India"/>
 
     </bean>
 

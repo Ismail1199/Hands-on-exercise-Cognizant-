@@ -6,9 +6,11 @@ public class Country {
     private String name;
 
     public Country() {
+        System.out.println("Inside Default Constructor");
     }
 
     public Country(String code, String name) {
+        System.out.println("Inside Parameterized Constructor");
         this.code = code;
         this.name = name;
     }
