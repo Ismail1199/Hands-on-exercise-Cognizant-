@@ -11,12 +11,28 @@
         <constructor-arg value="dd/MM/yyyy"/>
     </bean>
 
-    <bean id="country"
+    <bean id="countryIndia"
           class="com.cognizant.springlearn.Country">
-
         <property name="code" value="IN"/>
         <property name="name" value="India"/>
+    </bean>
 
+    <bean id="countryUS"
+          class="com.cognizant.springlearn.Country">
+        <property name="code" value="US"/>
+        <property name="name" value="United States"/>
+    </bean>
+
+    <bean id="countryGermany"
+          class="com.cognizant.springlearn.Country">
+        <property name="code" value="DE"/>
+        <property name="name" value="Germany"/>
+    </bean>
+
+    <bean id="countryJapan"
+          class="com.cognizant.springlearn.Country">
+        <property name="code" value="JP"/>
+        <property name="name" value="Japan"/>
     </bean>
 
 </beans>

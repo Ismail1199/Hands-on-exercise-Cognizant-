@@ -27,16 +27,16 @@ public class SpringLearnApplication {
 
         LOGGER.info("Today's Date : {}", format.format(new Date()));
 
-        Country country1 =
-                context.getBean("country", Country.class);
-
-        Country country2 =
-                context.getBean("country", Country.class);
-
-        LOGGER.info("Country1 : {}", country1);
-        LOGGER.info("Country2 : {}", country2);
-
-        LOGGER.info("Same Object : {}", country1 == country2);
+//        Country country1 =
+//                context.getBean("country", Country.class);
+//
+//        Country country2 =
+//                context.getBean("country", Country.class);
+//
+//        LOGGER.info("Country1 : {}", country1);
+//        LOGGER.info("Country2 : {}", country2);
+//
+//        LOGGER.info("Same Object : {}", country1 == country2);
 
         context.close();
     }
