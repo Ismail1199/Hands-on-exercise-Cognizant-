@@ -1,29 +1,32 @@
 package com.cognizant.springlearn.dao;
 
 import com.cognizant.springlearn.model.Employee;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
 public class EmployeeDao {
 
-    public List<Employee> getAllEmployees() {
+    private static final List<Employee> EMPLOYEE_LIST;
 
-        List<Employee> employees = new ArrayList<>();
+    static {
+        ClassPathXmlApplicationContext context =
+                new ClassPathXmlApplicationContext("employee.xml");
 
-        employees.add(new Employee(1, "John", 50000));
-        employees.add(new Employee(2, "Alice", 60000));
-        employees.add(new Employee(3, "Bob", 55000));
+        EMPLOYEE_LIST = context.getBean("employeeList", List.class);
 
-        return employees;
+        context.close();
     }
+
+    public List<Employee> getAllEmployees() {
+        return EMPLOYEE_LIST;
+    }
+
     public Employee getEmployee(int id) {
 
-        List<Employee> employees = getAllEmployees();
-
-        for (Employee employee : employees) {
+        for (Employee employee : EMPLOYEE_LIST) {
             if (employee.getId() == id) {
                 return employee;
             }
