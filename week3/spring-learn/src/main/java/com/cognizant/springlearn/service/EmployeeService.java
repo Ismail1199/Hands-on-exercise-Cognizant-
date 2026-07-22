@@ -18,4 +18,8 @@ public class EmployeeService {
     public List<Employee> getAllEmployees() {
         return employeeDao.getAllEmployees();
     }
+
+    public Employee getEmployee(int id) {
+        return employeeDao.getEmployee(id);
+    }
 }

@@ -19,4 +19,16 @@ public class EmployeeDao {
 
         return employees;
     }
+    public Employee getEmployee(int id) {
+
+        List<Employee> employees = getAllEmployees();
+
+        for (Employee employee : employees) {
+            if (employee.getId() == id) {
+                return employee;
+            }
+        }
+
+        return null;
+    }
 }
