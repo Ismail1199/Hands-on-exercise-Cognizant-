@@ -24,6 +24,22 @@
         <property name="name" value="Bob"/>
         <property name="salary" value="55000"/>
     </bean>
+    <bean id="department1"
+          class="com.cognizant.springlearn.model.Department">
+        <property name="id" value="1"/>
+        <property name="name" value="IT"/>
+    </bean>
+
+    <bean id="department2"
+          class="com.cognizant.springlearn.model.Department">
+        <property name="id" value="2"/>
+        <property name="name" value="HR"/>
+    </bean>
+
+    <util:list id="departmentList">
+        <ref bean="department1"/>
+        <ref bean="department2"/>
+    </util:list>
 
     <util:list id="employeeList">
         <ref bean="employee1"/>
