@@ -2,6 +2,8 @@ package com.cognizant.springlearn.model;
 
 public class Employee {
 
+    private Department department;
+
     private int id;
     private String name;
     private double salary;
@@ -9,10 +11,19 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(int id, String name, double salary) {
+    public Employee(int id, String name, double salary, Department department) {
         this.id = id;
         this.name = name;
         this.salary = salary;
+        this.department = department;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
     public int getId() {

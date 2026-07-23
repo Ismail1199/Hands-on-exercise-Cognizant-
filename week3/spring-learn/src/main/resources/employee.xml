@@ -4,26 +4,18 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="
-           http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-           http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/util
+           https://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="employee1" class="com.cognizant.springlearn.model.Employee">
-        <property name="id" value="1"/>
-        <property name="name" value="John"/>
-        <property name="salary" value="50000"/>
+    <!-- Date Format -->
+    <bean id="dateFormat"
+          class="java.text.SimpleDateFormat">
+        <constructor-arg value="dd/MM/yyyy"/>
     </bean>
 
-    <bean id="employee2" class="com.cognizant.springlearn.model.Employee">
-        <property name="id" value="2"/>
-        <property name="name" value="Alice"/>
-        <property name="salary" value="60000"/>
-    </bean>
-
-    <bean id="employee3" class="com.cognizant.springlearn.model.Employee">
-        <property name="id" value="3"/>
-        <property name="name" value="Bob"/>
-        <property name="salary" value="55000"/>
-    </bean>
+    <!-- Departments -->
     <bean id="department1"
           class="com.cognizant.springlearn.model.Department">
         <property name="id" value="1"/>
@@ -36,11 +28,38 @@
         <property name="name" value="HR"/>
     </bean>
 
+    <!-- Employees -->
+    <bean id="employee1"
+          class="com.cognizant.springlearn.model.Employee">
+        <property name="id" value="1"/>
+        <property name="name" value="John"/>
+        <property name="salary" value="50000"/>
+        <property name="department" ref="department1"/>
+    </bean>
+
+    <bean id="employee2"
+          class="com.cognizant.springlearn.model.Employee">
+        <property name="id" value="2"/>
+        <property name="name" value="Alice"/>
+        <property name="salary" value="60000"/>
+        <property name="department" ref="department1"/>
+    </bean>
+
+    <bean id="employee3"
+          class="com.cognizant.springlearn.model.Employee">
+        <property name="id" value="3"/>
+        <property name="name" value="Bob"/>
+        <property name="salary" value="55000"/>
+        <property name="department" ref="department2"/>
+    </bean>
+
+    <!-- Department List -->
     <util:list id="departmentList">
         <ref bean="department1"/>
         <ref bean="department2"/>
     </util:list>
 
+    <!-- Employee List -->
     <util:list id="employeeList">
         <ref bean="employee1"/>
         <ref bean="employee2"/>
