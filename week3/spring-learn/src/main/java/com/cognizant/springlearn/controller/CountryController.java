@@ -1,46 +1,32 @@
 package com.cognizant.springlearn.controller;
 
 import com.cognizant.springlearn.Country;
+import com.cognizant.springlearn.service.CountryService;
+import com.cognizant.springlearn.service.exception.CountryNotFoundException;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 public class CountryController {
 
-    @GetMapping("/countries/{code}")
-    public Country getCountry(@PathVariable String code) {
+    private final CountryService countryService;
 
-        ClassPathXmlApplicationContext context =
-                new ClassPathXmlApplicationContext("country.xml");
-
-        Country country = null;
-
-        switch (code.toUpperCase()) {
-            case "IN":
-                country = context.getBean("countryIndia", Country.class);
-                break;
-
-            case "US":
-                country = context.getBean("countryUS", Country.class);
-                break;
-
-            case "DE":
-                country = context.getBean("countryGermany", Country.class);
-                break;
-
-            case "JP":
-                country = context.getBean("countryJapan", Country.class);
-                break;
-        }
-
-        context.close();
-
-        return country;
+    public CountryController(CountryService countryService) {
+        this.countryService = countryService;
     }
+
+    @GetMapping("/countries/{code}")
+    public Country getCountry(@PathVariable String code)
+            throws CountryNotFoundException {
+
+        return countryService.getCountry(code);
+    }
+
     @GetMapping("/country")
     public Country getCountry() {
 
@@ -71,5 +57,4 @@ public class CountryController {
 
         return countries;
     }
-
 }
